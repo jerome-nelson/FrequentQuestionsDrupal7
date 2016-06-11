@@ -1,0 +1,22 @@
+{
+  "name": "frequent_questions",
+  "version": "1.0.0",
+  "description": "UI Research on how best to create system that provides user satisfaction.",
+  "main": "node-browserstack.js",
+  "scripts": {
+    "test": "node-browserstack.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerome-nelson/frequent-questions.git"
+  },
+  "author": "Jerome D Nelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerome-nelson/frequent-questions/issues"
+  },
+  "homepage": "https://github.com/jerome-nelson/frequent-questions#readme",
+  "dependencies": {
+    "selenium-webdriver": "^2.53.2"
+  }
+}
