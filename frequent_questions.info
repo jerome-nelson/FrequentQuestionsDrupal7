@@ -1,0 +1,12 @@
+name = Frequent Questions
+description = Creates a dynamic page on which questions and answers sections can be made
+core = 7.x
+
+files[] = frequent_questions.install
+files[] = frequent_questions.module
+
+dependencies[] = node
+dependencies[] = views
+dependencies[] = field
+
+configure = admin/content/frequent_questions

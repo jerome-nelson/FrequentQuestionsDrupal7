@@ -1,0 +1,65 @@
+<?php
+/**
+ * Implements hook_help().
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ * @return string
+ */
+function frequent_questions_help($path, $arg) {
+    switch($path) {
+        case "admin/help#frequent_questions":
+            return '' . t('This is the help documentation for the Frequent Questions module.') . '';
+            break;
+    }
+}
+
+function frequent_questions_theme($existing, $type, $theme, $path) {
+   return array(
+       'views_view__frequent_questions_setup__page' => array (
+           'variables' => array('view' => NULL,),
+           'base hook' => 'views_view',
+            'template' => 'views-view--frequent-questions-setup--page.tpl.php',
+            'path' => drupal_get_path('module', 'frequent_questions'),
+       ),
+       'views_view_list__frequent_questions_setup__page' => array (
+           'variables' => array('view' => NULL,),
+           'base hook' => 'views_view_list',
+           'template' => 'views-view-list--frequent-questions-setup--page.tpl.php',
+           'path' => drupal_get_path('module', 'frequent_questions'),
+       ),
+    );
+}
+
+
+/**
+ * Implements hook_views_api().
+ */
+function frequent_questions_views_pre_render(&$view) {
+    if($view->name == 'frequent_questions_setup') {
+        //Add JS Library and init JS here.
+    }
+}
+function frequent_questions_views_api(){
+    return array(
+        'api'  => 3.0,
+        'path' => drupal_get_path('module','frequent_questions')
+    );
+}
+
+function frequent_questions_views_default_views() {
+    require_once(drupal_get_path('module','frequent_questions').'/inc/views/faq-master.inc');
+    $views[$view->name] = $view;
+    return $views;
+}
+
+/**
+ * Implements hook_search_admin().
+ */
+function frequent_questions_form(&$form,$form_state) {
+
+}
